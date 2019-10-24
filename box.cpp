@@ -74,3 +74,15 @@ Box::Box(int width, int height, Boxtype type) {
 
 	boxTracker++;
 }
+
+//copy constructor
+Box::Box(const Box& obj) {
+
+	_width = obj._width;
+
+	_height = obj._height;
+
+	_type = obj._type;
+
+	boxTracker++;
+}
