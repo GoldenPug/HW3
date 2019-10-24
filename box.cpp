@@ -91,3 +91,105 @@ Box::Box(const Box& obj) {
 Box::~Box() {
 	boxTracker = 1;
 }
+
+//prints filled / hollow / checkered boxes
+ostringstream& operator<<(ostringstream& out, const Box& obj) {
+	int lineCounter = 0;
+
+	for (int borderline = 0; borderline < obj.getWidth(); borderline++) {
+
+		if (obj.type() == "Checkered") {
+
+			if (borderline % 2 == 0)
+				out << "x";
+
+			if (borderline % 2 != 0)
+				out << " ";
+		}
+
+		else {
+
+			if (obj.getWidth() != 1 && obj.getHeight() != 1) {
+				out << "x";
+			}
+		}
+	}
+
+	if (obj.getWidth() != 1 && obj.getHeight() != 1) out << endl;
+	for (int line = 0; line < obj.getHeight() - 2; line++) {
+
+		for (int column = 0; column < 1; column++) {
+
+			if (obj.type() == "Checkered") {
+
+				out << " ";
+			}
+
+			else if (obj.type() != "Checkered") {
+				out << "x";
+			}
+
+			lineCounter++;
+		}
+
+		for (int row = 0; row < obj.getWidth() - 2; row++) {
+			if (obj.type() == "Filled") {
+				out << "x";
+			}
+
+			else if (obj.type() == "Checkered") {
+
+				if (row % 2 == 0)
+					out << "x";
+
+				if (row % 2 != 0)
+					out << " ";
+			}
+
+			else if (obj.type() == "Hollow") {
+				out << " ";
+			}
+		}
+
+		for (int column = 0; column < 1; column++) {
+			if (obj.type() == "Checkered")
+				out << " ";
+
+			else
+				out << "x";
+		}
+
+		out << endl;
+	}
+
+	for (int borderline = 0; borderline < obj.getWidth(); borderline++) {
+		if (obj.type() == "Checkered") {
+
+			if (lineCounter % 2 == 0) {
+				if (borderline % 2 == 0)
+					out << " ";
+
+				if (borderline % 2 != 0)
+					out << "x";
+			}
+			if (lineCounter % 2 != 0) {
+				if (borderline % 2 == 0)
+					out << "x";
+
+				if (borderline % 2 != 0)
+					out << " ";
+			}
+		}
+
+		else {
+			out << "x";
+		}
+	}
+
+	out << endl;
+
+	cout << out.str();
+
+	return out;
+}
+//end of file
