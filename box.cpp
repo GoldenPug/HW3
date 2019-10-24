@@ -86,3 +86,8 @@ Box::Box(const Box& obj) {
 
 	boxTracker++;
 }
+
+//deconstructor
+Box::~Box() {
+	boxTracker = 1;
+}
