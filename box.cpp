@@ -63,3 +63,14 @@ Box::Box(int width, int height) {
 
 	boxTracker++;
 }
+
+//parameterized constructor: hollow, filled, and checkered
+Box::Box(int width, int height, Boxtype type) {
+	_height = height;
+
+	_width = width;
+
+	_type = type;
+
+	boxTracker++;
+}
