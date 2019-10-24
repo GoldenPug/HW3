@@ -41,3 +41,14 @@ int Box::getHeight() const {
 void Box::setHeight(int height) {
 	_height = height;
 }
+
+//default constructor: 1 x 1 filled box
+Box::Box() {
+	_width = 1;
+
+	_height = 1;
+
+	_type = FILLED;
+
+	boxTracker++;
+}
