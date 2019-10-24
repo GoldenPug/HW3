@@ -52,3 +52,14 @@ Box::Box() {
 
 	boxTracker++;
 }
+
+//parameterized constructor: filled
+Box::Box(int width, int height) {
+	_height = height;
+
+	_width = width;
+
+	_type = FILLED;
+
+	boxTracker++;
+}
