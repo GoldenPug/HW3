@@ -87,6 +87,22 @@ Box::Box(const Box& obj) {
 	boxTracker++;
 }
 
+//member function returns either the string Filled, Hollow, or Checkered
+string Box::type() const {
+	if (_type == FILLED) {
+		return "Filled";
+	}
+
+	else if (_type == HOLLOW) {
+		return "Hollow";
+	}
+
+	else if (_type == CHECKERED) {
+		return "Checkered";
+	}
+
+}
+
 //deconstructor
 Box::~Box() {
 	boxTracker = 1;
