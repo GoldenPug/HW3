@@ -64,7 +64,7 @@ Box::Box(int width, int height) {
 	boxTracker++;
 }
 
-//parameterized constructor: hollow, filled, and checkered
+//parameterized constuctor: hollow, filled, and checkered
 Box::Box(int width, int height, Boxtype type) {
 	_height = height;
 
@@ -87,6 +87,11 @@ Box::Box(const Box& obj) {
 	boxTracker++;
 }
 
+//deconstructor
+Box::~Box() {
+	boxTracker = 1;
+}
+
 //member function returns either the string Filled, Hollow, or Checkered
 string Box::type() const {
 	if (_type == FILLED) {
@@ -103,9 +108,9 @@ string Box::type() const {
 
 }
 
-//deconstructor
-Box::~Box() {
-	boxTracker = 1;
+//static member function that gets and returns how many box objects currently exist
+int Box::howMany() {
+	return boxTracker;
 }
 
 //prints filled / hollow / checkered boxes
